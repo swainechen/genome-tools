@@ -1,0 +1,6 @@
+$ROOTPATH = '/usr';
+$GENOMESPATH = '/usr/lib/Genomes';
+$BINPATH = "$ROOTPATH/bin";
+$LIBPATH = "$ROOTPATH/lib";
+$SBINPATH = "$ROOTPATH/sbin";
+$default_orgcode = '';

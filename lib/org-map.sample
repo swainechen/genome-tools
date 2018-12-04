@@ -1,0 +1,147 @@
+ath1	$GENOMESPATH/A_thaliana/CHR_I/NC_003070	At1g#####	5	4,8	Arabidopsis thaliana	chromosome I	-1	1
+ath2	$GENOMESPATH/A_thaliana/CHR_II/NC_003071	At2g#####	5	4,8	Arabidopsis thaliana	chromosome II	-1	1
+ath3	$GENOMESPATH/A_thaliana/CHR_III/NC_003074	At3g#####	5	4,8	Arabidopsis thaliana	chromosome III	-1	1
+ath4	$GENOMESPATH/A_thaliana/CHR_IV/NC_003075	At4g#####	5	4,8	Arabidopsis thaliana	chromosome IV	-1	1
+ath5	$GENOMESPATH/A_thaliana/CHR_V/NC_003076	At5g#####	5	4,8	Arabidopsis thaliana	chromosome V	-1	1
+aper	$GENOMESPATH/Aeropyrum_pernix/BA000002	APE####	4	8	Aeropyrum pernix		142	0
+agrc	$GENOMESPATH/Agrobacterium_tumefaciens_C58_UWash/AE008688	Atu####	5	4,8	Agrobacterium tumefaciens	circular	220	0
+agrl	$GENOMESPATH/Agrobacterium_tumefaciens_C58_UWash/linear/AE008689	Atu####	5	4,8	Agrobacterium tumefaciens	linear	221	1
+apAT	$GENOMESPATH/Agrobacterium_tumefaciens_C58_UWash/pAT/AE008687	Atu####	5	4,8	Agrobacterium tumefaciens	pAT	222	0
+apTi	$GENOMESPATH/Agrobacterium_tumefaciens_C58_UWash/pTi/AE008690	Atu####	5	4,8	Agrobacterium tumefaciens	pTi	223	0
+aaeo	$GENOMESPATH/Aquifex_aeolicus/AE000657	NA	5	4,8	Aquifex aeolicus		133	0
+aaee	$GENOMESPATH/Aquifex_aeolicus/ece1/AE000667	aa##	5	4,8	Aquifex aeolicus	plasmid ece1	13460	0
+aful	$GENOMESPATH/Archaeoglobus_fulgidus/AE000782	AF####	4	8	Archaeoglobus fulgidus		131	0
+bhal	$GENOMESPATH/Bacillus_halodurans/BA000004	BH####	5	4,8	Bacillus halodurans		167	0
+bsub	$GENOMESPATH/Bacillus_subtilis/NC_000964	Bsu####	5	4,8	Bacillus subtilis		27	0
+bbur	$GENOMESPATH/Borrelia_burgdorferi/AE000783	BB####	4	8	Borrelia burgdorferi		132	1
+bme1	$GENOMESPATH/Brucella_melitensis/AE008917	BMEI####	5	8	Brucella melitensis	chromosome I	224	0
+bme2	$GENOMESPATH/Brucella_melitensis/chromosomeII/AE008918	BMEII####	5	8	Brucella melitensis	chromosome II	225	0
+baph	$GENOMESPATH/Buchnera_aphidicola_Sg/AE013218	BUsg###	5	4,8	Buchnera aphidicola	str. Sg	248	0
+bucn	$GENOMESPATH/Buchnera_sp/BA000003	Buc####	5	4,8	Buchnera sp APS		164	0
+bucL	$GENOMESPATH/Buchnera_sp/pLeu/AP001071	BucL####	5	4,8	Buchnera sp APS	pLeu	15344	0
+bucT	$GENOMESPATH/Buchnera_sp/pTrp/AP001070	BucT####	5	4,8	Buchnera sp APS	pTrp	15343	0
+cel1	$GENOMESPATH/C_elegans/CHR_I/worm_I	NA	4	5	Caenorhabditis elegans	chromosome I	-1	1
+cel2	$GENOMESPATH/C_elegans/CHR_II/worm_II	NA	4	5	Caenorhabditis elegans	chromosome II	-1	1
+cel3	$GENOMESPATH/C_elegans/CHR_III/worm_III	NA	4	5	Caenorhabditis elegans	chromosome III	-1	1
+cel4	$GENOMESPATH/C_elegans/CHR_IV/worm_IV	NA	4	5	Caenorhabditis elegans	chromosome IV	-1	1
+cel5	$GENOMESPATH/C_elegans/CHR_V/worm_V	NA	4	5	Caenorhabditis elegans	chromosome V	-1	1
+celX	$GENOMESPATH/C_elegans/CHR_X/worm_X	NA	4	5	Caenorhabditis elegans	chromosome X	-1	1
+cjej	$GENOMESPATH/Campylobacter_jejuni/AL111168	Cj####	5	4,8	Campylobacter jejuni		152	0
+ccre	$GENOMESPATH/Caulobacter_crescentus/AE005673	CC####	4	8	Caulobacter crescentus		177	0
+cmur	$GENOMESPATH/Chlamydia_muridarum/AE002160	TC####	4	8	Chlamydia muridarum		153	0
+cmup	$GENOMESPATH/Chlamydia_muridarum/pMoPn/AE002162	TCA##	4	8	Chlamydia muridarum	pMoPn	15275	0
+ctra	$GENOMESPATH/Chlamydia_trachomatis/AE001273	CT###	5	4,8	Chlamydia trachomatis		137	0
+cpnA	$GENOMESPATH/Chlamydophila_pneumoniae/AR39/AE002161	CP####	4	8	Chlamydophila pneumoniae	AR39	154	0
+cpnC	$GENOMESPATH/Chlamydophila_pneumoniae/CWL029/AE001363	CPn####	5	4,8	Chlamydophila pneumoniae	CWL029	140	0
+cpnJ	$GENOMESPATH/Chlamydophila_pneumoniae/J138/BA000008	CPj####	5	4,8	Chlamydophila pneumoniae	J138	160	0
+ctep	$GENOMESPATH/Chlorobium_tepidum_TLS/AE006470	CT####	5	4,8	Chlorobium tepidum	TLS	247	0
+cace	$GENOMESPATH/Clostridium_acetobutylicum/AE001437	CAC####	4	8	Clostridium acetobutylicum		185	0
+cper	$GENOMESPATH/Clostridium_perfringens/BA000016	CPE####	5	4,8	Clostridium perfringens		226	0
+cpeC	$GENOMESPATH/Clostridium_perfringens/pCP13/AP003515	PCP##	5	4,8	Clostridium perfringens	plasmid pCP13	15746	0
+drad	$GENOMESPATH/Deinococcus_radiodurans/AE000513	DR####	4	8	Deinococcus radiodurans	chromosome I	144	0
+draC	$GENOMESPATH/Deinococcus_radiodurans/CP1/AE001827	DRC####	4	8	Deinococcus radiodurans	CP1	15155	0
+draM	$GENOMESPATH/Deinococcus_radiodurans/MP1/AE001826	DRB####	4	8	Deinococcus radiodurans	MP1	15154	0
+dra2	$GENOMESPATH/Deinococcus_radiodurans/chromosomeII/AE001825	DRA####	4	8	Deinococcus radiodurans	chromosome II	145	0
+ecol	$GENOMESPATH/Escherichia_coli/K12/U00096	b####	5	4,8	Escherichia coli	K12	115	0
+O157	$GENOMESPATH/Escherichia_coli/O157/BA000007	ECs####	4	8	Escherichia coli	O157:H7	176	0
+ecoE	$GENOMESPATH/Escherichia_coli/O157H7_EDL933/AE005174	Z####	5	4,8	Escherichia coli	O157:H7 EDL933	169	0
+fnuc	$GENOMESPATH/Fusobacterium_nucleatum/AE009951	FN####	5	8	Fusobacterium nucleatum		233	0
+hinf	$GENOMESPATH/Haemophilus_influenzae/L42023	HI####	4	8	Haemophilus influenzae		25	0
+halo	$GENOMESPATH/Halobacterium_sp/AE004437	VNG####	5	4,8	Halobacterium sp NRC-1		165	0
+hal1	$GENOMESPATH/Halobacterium_sp/pNRC100/AF016485	VNG7###	5	4,8	Halobacterium sp NRC-1	pNRC100	13234	0
+hal2	$GENOMESPATH/Halobacterium_sp/pNRC200/AE004438	VNG6###	5	4,8	Halobacterium sp NRC-1	pNRC200	165	0
+hpy2	$GENOMESPATH/Helicobacter_pylori/26695/AE000511	HP####	4	8	Helicobacter pylori	26695	128	0
+hpyj	$GENOMESPATH/Helicobacter_pylori/J99/AE001439	jhp####	5	4	Helicobacter pylori	J99	139	0
+llac	$GENOMESPATH/Lactococcus_lactis/AE005176	NA	5	4,8	Lactococcus lactis	subsp. lactis	171	0
+linn	$GENOMESPATH/Listeria_innocua/AL592022	lin####	5	4,8	Listeria innocua		205	0
+lmon	$GENOMESPATH/Listeria_monocytogenes/AL591824	lmo####	5	4,8	Listeria monocytogenes		204	0
+mlot	$GENOMESPATH/Mesorhizobium_loti/NC_002678	m[sl][rl]####	5	8	Mesorhizobium loti		173	0
+mloa	$GENOMESPATH/Mesorhizobium_loti/pMLa/NC_002679	m[sl][rl]####	5	8	Mesorhizobium loti	pMLa	174	0
+mlob	$GENOMESPATH/Mesorhizobium_loti/pMLb/NC_002682	m[sl][rl]####	5	8	Mesorhizobium loti	pMLb	15607	0
+mthe	$GENOMESPATH/Methanobacterium_thermoautotrophicum/AE000666	MTH####	5	4,8	Methanobacterium thermoautotrophicum		130	0
+mjan	$GENOMESPATH/Methanococcus_jannaschii/L77117	MJ####	4	8	Methanococcus jannaschii		28	0
+mjaL	$GENOMESPATH/Methanococcus_jannaschii/large/L77118	MJECL##	4	8	Methanococcus jannaschii	large extra-chromosomal element	10927	0
+mjaS	$GENOMESPATH/Methanococcus_jannaschii/small/L77119	MJECS##	4	8	Methanococcus jannaschii	small extra-chromosomal element	10928	0
+mkan	$GENOMESPATH/Methanopyrus_kandleri/AE009439	MK####	5	4,8	Methanopyrus kandleri		235	0
+mace	$GENOMESPATH/Methanosarcina_acetivorans/AE010299	MA####	5	4,8	Methanosarcina acetivorans		236	0
+mmaz	$GENOMESPATH/Methanosarcina_mazei/AE008384	MM####	5	4,8	Methanosarcina mazei		239	0
+mlep	$GENOMESPATH/Mycobacterium_leprae/AL450380	ML####	5	4,8	Mycobacterium leprae		172	0
+mtbc	$GENOMESPATH/Mycobacterium_tuberculosis/CDC1551/AE000516	MT####	4	8	Mycobacterium tuberculosis	CDC1551	181	0
+mtbH	$GENOMESPATH/Mycobacterium_tuberculosis/H37Rv/AL123456	Rv####	5	4,8	Mycobacterium tuberculosis	strain H37Rv	135	0
+mgen	$GENOMESPATH/Mycoplasma_genitalium/L43967	MG###	4	8	Mycoplasma genitalium		26	0
+mpne	$GENOMESPATH/Mycoplasma_pneumoniae/U00089	NA	5	4,8	Mycoplasma pneumoniae		113	0
+mpul	$GENOMESPATH/Mycoplasma_pulmonis/AL445566	MYPU_####	4	8	Mycoplasma pulmonis		183	0
+mc58	$GENOMESPATH/Neisseria_meningitidis/MC58/AE002098	NMB####	4	8	Neisseria meningitidis	MC58	155	0
+nmeZ	$GENOMESPATH/Neisseria_meningitidis/Z2491/AL157959	NMA####	5	4,8	Neisseria meningitidis	Z2491	156	0
+nost	$GENOMESPATH/Nostoc_sp/BA000019	a[sl][rl]####	5	4,8	Nostoc sp PCC7120		217	0
+nosa	$GENOMESPATH/Nostoc_sp/pCC7120alpha/BA000020	a[sl][rl]7###	5	8	Nostoc sp PCC7120	pCC7120alpha	217	0
+nosb	$GENOMESPATH/Nostoc_sp/pCC7120beta/AP003602	a[sl][rl]7###	4	8	Nostoc sp PCC7120	pCC7120beta	15863	0
+nosd	$GENOMESPATH/Nostoc_sp/pCC7120delta/AP003604	a[sl][rl]85##	4	8	Nostoc sp PCC7120	pCC7120delta	15871	0
+nose	$GENOMESPATH/Nostoc_sp/pCC7120epsilon/AP003605	a[sl][rl]9###	4	8	Nostoc sp PCC7120	pCC7120epsilon	15870	0
+nosg	$GENOMESPATH/Nostoc_sp/pCC7120gamma/AP003603	a[sl][rl]8###	4	8	Nostoc sp PCC7120	pCC7120gamma	15869	0
+nosz	$GENOMESPATH/Nostoc_sp/pCC7120zeta/AP003606	a[sl][rl]95##	4	8	Nostoc sp PCC7120	pCC7120zeta	15864	0
+pmul	$GENOMESPATH/Pasteurella_multocida/AE004439	PM####	5	4,8	Pasteurella multocida		170	0
+paer	$GENOMESPATH/Pseudomonas_aeruginosa/AE004091	PA####	5	4,8	Pseudomonas aeruginosa		163	0
+pyae	$GENOMESPATH/Pyrobaculum_aerophilum/AE009441	PAE####	5	8	Pyrobaculum aerophilum		227	0
+paby	$GENOMESPATH/Pyrococcus_abyssi/AL096836	PAB####	5	4,8	Pyrococcus abyssi		143	0
+pfur	$GENOMESPATH/Pyrococcus_furiosus/NC_003413	PF####	5	4,8	Pyrococcus furiosus		228	0
+phor	$GENOMESPATH/Pyrococcus_horikoshii/BA000001	PH####	4	8	Pyrococcus horikoshii		134	0
+rsol	$GENOMESPATH/Ralstonia_solanacearum/AL646052	RSc####	5	4,8	Ralstonia solanacaerum		218	0
+rsom	$GENOMESPATH/Ralstonia_solanacearum/megaplasmid/AL646053	RSp####	5	4,8	Ralstonia solanacaerum	megaplasmid	219	0
+rcon	$GENOMESPATH/Rickettsia_conorii/AE006914	RC####	5	8	Rickettsia conorii		199	0
+rpro	$GENOMESPATH/Rickettsia_prowazekii/AJ235269	RP###	4	8	Rickettsia prowazekii		138	0
+sc01	$GENOMESPATH/S_cerevisiae/Chr01/I	YAL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeI	29	1
+sc02	$GENOMESPATH/S_cerevisiae/Chr02/II	YBL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeII	30	1
+sc03	$GENOMESPATH/S_cerevisiae/Chr03/III	YCL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeIII	31	1
+sc04	$GENOMESPATH/S_cerevisiae/Chr04/IV	YDL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeIV	32	1
+sc05	$GENOMESPATH/S_cerevisiae/Chr05/V	YEL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeV	33	1
+sc06	$GENOMESPATH/S_cerevisiae/Chr06/VI	YFL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeVI	34	1
+sc07	$GENOMESPATH/S_cerevisiae/Chr07/VII	YGL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeVII	35	1
+sc08	$GENOMESPATH/S_cerevisiae/Chr08/VIII	YHL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeVIII	36	1
+sc09	$GENOMESPATH/S_cerevisiae/Chr09/IX	YIL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeIX	37	1
+sc10	$GENOMESPATH/S_cerevisiae/Chr10/X	YJL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeX	38	1
+sc11	$GENOMESPATH/S_cerevisiae/Chr11/XI	YKL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeXI	39	1
+sc12	$GENOMESPATH/S_cerevisiae/Chr12/XII	YLL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeXII	40	1
+sc13	$GENOMESPATH/S_cerevisiae/Chr13/XIII	YML###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeXIII	41	1
+sc14	$GENOMESPATH/S_cerevisiae/Chr14/XIV	YNL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeXIV	42	1
+sc15	$GENOMESPATH/S_cerevisiae/Chr15/XV	YOL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeXV	43	1
+sc16	$GENOMESPATH/S_cerevisiae/Chr16/XVI	YPL###[CW]	5	4,8	Saccharomyces cerevisiae	ChromosomeXVI	44	1
+scMT	$GENOMESPATH/S_cerevisiae/ChrMT/MT	Q####	5	4,8	Saccharomyces cerevisiae	mitochondrion	105	0
+styp	$GENOMESPATH/Salmonella_typhi/AL513382	STY####	4	5,8	Salmonella typhi		203	0
+sty2	$GENOMESPATH/Salmonella_typhimurium_LT2/AE006468	STM####	5	4,8	Salmonella typhimurium	LT2	202	0
+pSLT	$GENOMESPATH/Salmonella_typhimurium_LT2/pSLT/AE006471	PSLT###	5	4,8	Salmonella typhimurium	LT2 pSLT	202	0
+smel	$GENOMESPATH/Sinorhizobium_meliloti/AL591688	SMc#####	5	4,8	Sinorhizobium meliloti		188	0
+smeA	$GENOMESPATH/Sinorhizobium_meliloti/pSymA/AE006469	SMa####	5	4,8	Sinorhizobium meliloti	pSymA	188	0
+smeB	$GENOMESPATH/Sinorhizobium_meliloti/pSymB/AL591985	SMb2####	5	4,8	Sinorhizobium meliloti	pSymB	188	0
+saMW	$GENOMESPATH/Staphylococcus_aureus/MW2/BA000033	MW####	5	4,8	Staphylococcus aureus	MW2	243	0
+sauM	$GENOMESPATH/Staphylococcus_aureus/Mu50/BA000017	SAV####	5	4,8	Staphylococcus aureus	Mu50	182	0
+saMV	$GENOMESPATH/Staphylococcus_aureus/Mu50/VRSAp/AP003367	SAVP###	5	4,8	Staphylococcus aureus	Mu50 VRSAp	182	0
+sauN	$GENOMESPATH/Staphylococcus_aureus/N315/BA000018	SA####	5	4,8	Staphylococcus aureus	N315	179	0
+saNp	$GENOMESPATH/Staphylococcus_aureus/N315/pN315B/AP003139	SAP###	5	4,8	Staphylococcus aureus	N315 pN315B	179	0
+spnR	$GENOMESPATH/Streptococcus_pneumoniae/R6/AE007317	spr####	5	4,8	Streptococcus pneumoniae	R6	198	0
+spnT	$GENOMESPATH/Streptococcus_pneumoniae/TIGR4/AE005672	SP####	4	8	Streptococcus pneumoniae	TIGR4	184	0
+spyo	$GENOMESPATH/Streptococcus_pyogenes/AE004092	SPy####	5	4,8	Streptococcus pyogenes		178	0
+spM3	$GENOMESPATH/Streptococcus_pyogenes/MGAS315/AE014074	SpyM3_####	5	4,8	Streptococcus pyogenes	MGAS315	249	0
+spyM	$GENOMESPATH/Streptococcus_pyogenes/MGAS8232/AE009949	spyM18_####	5	4,8	Streptococcus pyogenes	MGAS8232	234	0
+scoe	$GENOMESPATH/Streptomyces_coelicolor/AL645882	SCO####	5	4,8	Streptomyces coelicolor		238	1
+sco1	$GENOMESPATH/Streptomyces_coelicolor/SCP1/AL589148	SCP1.##	4	8	Streptomyces coelicolor	plasmid SCP1	241	1
+sco2	$GENOMESPATH/Streptomyces_coelicolor/SCP2/AL645771	SCP2.##	4	8	Streptomyces coelicolor	plasmid SCP2	16388	1
+ssol	$GENOMESPATH/Sulfolobus_solfataricus/AE006641	SSO####	5	4,8	Sulfolobus solfataricus		180	0
+stok	$GENOMESPATH/Sulfolobus_tokodaii/BA000023	ST####	4	8	Sulfolobus tokodaii		200	0
+spcc	$GENOMESPATH/Synechocystis_PCC6803/AB001339	SPCC####	5	4,8	Synechocystis	PCC6803	112	0
+test	$GENOMESPATH/Testing/ccretest	CC####	4	8	Caulobacter crescentus	testing	0	0
+etmp	$GENOMESPATH/Testing/ecoltest	b####	5	4,8	Escherichia coli	K12 testing	0	0
+tten	$GENOMESPATH/Thermoanaerobacter_tengcongensis/AE008691	TTE####	5	4,8	Thermoanaerobacter tengcongensis		237	0
+taci	$GENOMESPATH/Thermoplasma_acidophilum/AL139299	Ta####	4	8	Thermoplasma acidophilum		168	0
+tvol	$GENOMESPATH/Thermoplasma_volcanium/NC_002689	TVN####	5	8	Thermoplasma volcanium		175	0
+tmar	$GENOMESPATH/Thermotoga_maritima/AE000512	TM####	4	8	Thermotoga maritima		141	0
+tpal	$GENOMESPATH/Treponema_pallidum/AE000520	TP####	4	8	Treponema pallidum		136	0
+uure	$GENOMESPATH/Ureaplasma_urealyticum/AF222894	UU###	5	4,8	Ureaplasma urealyticum		151	0
+vib1	$GENOMESPATH/Vibrio_cholerae/AE003852	VC####	4	8	Vibrio cholerae	chromosome I	161	0
+vib2	$GENOMESPATH/Vibrio_cholerae/chromosomeII/AE003853	VCA####	4	8	Vibrio cholerae	chromosome II	162	0
+xcam	$GENOMESPATH/Xanthomonas_campestris/AE008922	XCC####	5	4,8	Xanthomonas campestris		240	0
+xcit	$GENOMESPATH/Xanthomonas_citri/AE008923	XAC####	5	4,8	Xanthomonas citri		242	0
+xfas	$GENOMESPATH/Xylella_fastidiosa/AE003849	XF####	4	8	Xylella fastidiosa		159	0
+xfa1	$GENOMESPATH/Xylella_fastidiosa/pXF1.3/AE003850	XFb####	4	8	Xylella fastidiosa	pXF1.3	15460	0
+xfa5	$GENOMESPATH/Xylella_fastidiosa/pXF51/AE003851	XFa####	4	8	Xylella fastidiosa	pXF51	15461	0
+ypes	$GENOMESPATH/Yersinia_pestis/AL590842	YPO####	5	4,8	Yersinia pestis		201	0

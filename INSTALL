@@ -1,0 +1,75 @@
+Genome-tools
+Version 1.23
+
+######################
+# Basic installation #
+######################
+
+Quick quick installation instructions:
+
+  Run the setup.pl script, usually with
+
+    $ ./setup.pl
+
+  Answer all the prompts, the defaults will probably work ok for you.
+  Then, run the update-genome.pl script to get some genomes to work with.
+
+    $ update-genome.pl -help
+
+  This will give you a help screen telling you how to use update-genome.pl.
+  If you're really really impatient and have a lot of disk space, you can
+  have genome-tools download all the curated prokaryotic genomes from GenBank
+  by using:
+
+    $ update-genome.pl -all
+
+  Be warned, this may take several hours or more, but you can just leave your
+  machine running, it shouldn't need much attention from you at this point.
+  This command also only downloads a few hundred genomes.  The rate at which
+  genomes enter NCBI has been growing quite quickly and we're not going to
+  keep assigning new arbitrary orgcodes to them all.  The orgcode idea is
+  still useful for some of us that have been using it for a while, but we'll
+  have to transition to something more maintainable as sequencing continues
+  to accelerate.
+
+  A better way would probably be to look in
+    ftp://ftp.ncbi.nih.gov/genomes/Bacteria
+  and pick out the genomes you're interested in.  You can feed these directly
+  to the update-genome.pl script, such as:
+
+    $ update-genome.pl Acaryochloris_marina_MBIC11017_uid58167
+
+  Then it will prompt you for orgcodes and customized ORF designations, if
+  you're using a few genomes regularly this will allow you to designate your
+  own orgcodes that probably make more sense to you.
+
+  Now, you're ready to use genome-tools.  Have fun.
+
+Note that you will need to be root if you want to install this in the
+standard system directories.
+
+You can install it as a regular user, but you must have write priveleges
+over the directories you specify, which probably means you will be the
+only user to be able to use it.
+
+#####################################
+# Upgrading from a previous version #
+#####################################
+
+Run the upgrade-genome-tools.pl script:
+
+  $ ./upgrade-genome-tools.pl
+
+This will look for a genome-tools.conf file in /etc, /usr/etc, and
+/usr/local/etc.  If it can't find one or doesn't find all the information
+it needs in the config file, it will abort and ask you to run setup.pl so that
+a valid configuration file is made.
+
+The default is to generate a log file called upgrade.log.
+
+Run "./upgrade-genome-tools.pl -help" to get a help message.
+
+
+Swaine Chen, William Lee
+November 2003
+Last modified June 2012
