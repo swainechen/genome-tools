@@ -32,11 +32,12 @@ my @f;
 my $dummy_geneformat = "NUL####";
 my $default_genecol = 5;
 my $default_desccols = "4,8";
-my $download_new;
+my $download_new = 0;
 
 GetOptions ('infile=s' => \$infile,
             'batch' => \$batch,
             'all' => \$all,
+            'download!' => \$download_new,
             'help' => \$help);
 
 if ($help) { &PrintUsage; }
@@ -111,23 +112,26 @@ while ($ncbiDirName = shift(@directories)) {
 
   next if $ncbiDirName =~ /^#/;
   chomp $ncbiDirName;
+  $ncbiDirName =~ s/\/$//;
   $wgetCmd .= " -nv -r -N -l1 --no-parent -A" . join(",", @dlExts) . " -nd -P $ncbiDirName";
+
+  if ($batch) {
+    print "Starting $ncbiDirName...\n";
+  }
 
   # Check if this directory already has been downloaded
   if (-d $ncbiDirName) {
-    if ($batch) {
-      $response = 'y';
-    } else {
+    if (!$batch) {
       print "It appears the directory $ncbiDirName already exists locally.\nShould we proceed with download (overwriting older files)? (Y/n) ";
       $response = <STDIN>;
-    }
-    if ($response !~ m/^y/i && $response !~ m/^$/) {
-      $download_new = 0;
-      next;
-    } else {
-      $download_new = 1;
+      if ($response !~ m/^y/i && $response !~ m/^$/) {
+        $download_new = 0;
+      } else {
+        $download_new = 1;
+      }
     }
   }
+
 
   if ($download_new) {
     print "Downloading files in $ncbiDirName directory on NCBI FTP site...\n";
@@ -152,7 +156,7 @@ while ($ncbiDirName = shift(@directories)) {
     chomp($replicon);
     my ($accession, $projectID, $species, $definition, $linear);
 
-    if ($replicon =~ /([\w\_\d]+)\.asn/) {
+    if ($replicon =~ /([\w\_\d]+)\.gbk/) {
       $accession = $1;
 
       # Parse out the project ID, species, definition, and topology
@@ -184,8 +188,8 @@ while ($ncbiDirName = shift(@directories)) {
     # same data files.  For now, though it will only look at the first match
     my @grepline = ();
     foreach my $i (0..$#orgmap) {
-      my @f = split /\t/, $orgmap[$i];
-      if ($f[1] eq "$ncbiDirName/$accession") {
+      @f = split /\t/, $orgmap[$i];
+      if ($f[1] =~ /$ncbiDirName\/$accession/) {
         push @grepline, $i;
         last;
       }
@@ -196,6 +200,7 @@ while ($ncbiDirName = shift(@directories)) {
     if (scalar @grepline) {
       if ($batch) {
         $response = 'y';
+        print "Existing org-map line for $ncbiDirName/$accession, not changing\n";
       } else {
         print "\nThere seems to be an orgmap line already for these data files:\n";
         print "-----\n$orgmap[$grepline[0]]-----\n";
@@ -219,12 +224,14 @@ while ($ncbiDirName = shift(@directories)) {
       # append the new org-map line
       if ($batch) {
         # give it a default
-        $orgmapLine = join ("\t", systematic_orgcode($ncbiDirName), "$ncbiDirName/$accession", $dummy_geneformat, $default_genecol, $default_desccols, $species, $definition, $projectID, $linear);
+        my $new_orgcode = systematic_orgcode($ncbiDirName);
+        $orgmapLine = join ("\t", $new_orgcode, "$ncbiDirName/$accession", $dummy_geneformat, $default_genecol, $default_desccols, $species, $definition, $projectID, $linear);
         $code = (split /\t/, $orgmapLine)[0];
         if ($orgmapLine !~ /$accession/) {
           print STDERR "Could not find standard org-map line for $ncbiDirName $accession...Skipping.\n";
           next;		# foreach $replicon
         }
+        print "New org-map line for $ncbiDirName/$accession, orgcode $new_orgcode\n";
       } else {
         ($code, $geneformat, $genecol, $desccols) = PromptFields ($species, $definition, $accession);
         $orgmapLine = join ("\t", $code, "$ncbiDirName/$accession", $geneformat, $genecol, $desccols, $species, $definition, $projectID, $linear);
@@ -259,16 +266,17 @@ sub systematic_orgcode {
   my @f = split /_/, $directory; 
   my $field = 2;
   my $candidate = "";
-  while (defined $f[$field]) {
-    if ($f[$field] eq "ATCC") { $field++; };
-    if ($f[$field] =~ /^uid/) { $candidate = ""; }
-  }
+#  while (defined $f[$field]) {
+#    if ($f[$field] eq "ATCC") { $field++; };
+#    if ($f[$field] =~ /^uid/) { $candidate = ""; }
+#  }
   if ($candidate eq "" || defined $orgcodes{$candidate}) {
     $candidate = 'aaaa';
     while (defined $orgcodes{$candidate}) {
       $candidate++;
     }
   }
+  $orgcodes{$candidate} = 1;
   return $candidate;
 }
 
