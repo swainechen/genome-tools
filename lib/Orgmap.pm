@@ -69,7 +69,7 @@ sub read_orgmap {
   my $in;
   my @temp;
   my $fieldnum;
-  if (defined $argument && length($argument) == 4) {
+  if (defined $argument && length($argument) >= 4) {
     $orgcode = $argument;
   } elsif (not $ARGV[0]) { $orgcode = $default_orgcode; }
   else { $orgcode = $ARGV[0]; }
@@ -78,11 +78,13 @@ sub read_orgmap {
   while (defined($in = <ORGMAP>) && ($done == 0)) {
     next if $in =~ /^$/;
     next if $in =~ /^#/;
-    last if length ($orgcode) != 4;
-    if ($in =~ /^$orgcode/) {
+    last if length ($orgcode) < 4; # give it more flexibility, i.e. accession numbers
+    if ($in =~ /^$orgcode\t/ || $in =~ /\/$orgcode\t/) {
       $done = 1;
       chomp $in;
       @temp = split /\t/, $in;
+
+      $orgcode = $temp[0] if $orgcode ne $temp[0]; # in case we matched accession
 
       @straindir = split /\//, $temp[1];
       $accession = pop @straindir;
@@ -99,17 +101,25 @@ sub read_orgmap {
       }
     
       $fileprefix = "$straindir/$accession";
-      if ($cmd_faafile eq "") {
+      if ($cmd_faafile eq "" || !-f $cmd_faafile) {
         $faafile = $fileprefix.'.faa';	# amino acids of ORFs
+      } else {
+        $faafile = $cmd_faafile;
       }
-      if ($cmd_ffnfile eq "") {
+      if ($cmd_ffnfile eq "" || !-f $cmd_ffnfile) {
         $ffnfile = $fileprefix.'.ffn';	# nucleotides of ORFs
+      } else {
+        $ffnfile = $cmd_ffnfile;
       }
-      if ($cmd_fnafile eq "") {
+      if ($cmd_fnafile eq "" || !-f $cmd_fnafile) {
         $fnafile = $fileprefix.'.fna';	# nucleotides of complete genome
+      } else {
+        $fnafile = $cmd_fnafile;
       }
-      if ($cmd_pttfile eq "") {
+      if ($cmd_pttfile eq "" || !-f $cmd_pttfile) {
         $pttfile = $fileprefix.'.ptt';	# gene-list type file
+      } else {
+        $pttfile = $cmd_pttfile;
       }
       $gidfield = 3;			# hard-code GID field
       $geneformat = $temp[2];
