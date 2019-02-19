@@ -17,15 +17,54 @@ use Orgmap qw(:DEFAULT read_sequence $sequence $topology $orgname $subname $pttf
 &read_orgmap;
 &read_sequence;
 
+use Getopt::Long;
+&Getopt::Long::Configure("pass_through");
+
 # variables
+my $size = 10;
+my $outfile = '';
+my $tickscale = 1;
+my $huescale = 1;
+my $circlescale = 1;
+my $numcircles = 1;
+my $linewidth = 0.709;
+GetOptions ('size=i' => \$size,
+            'tickscale=f' => \$tickscale,
+            'huescale=f' => \$huescale,
+            'circlescale=f' => \$circlescale,
+            'linewidth=f' => \$linewidth,
+            'numcircles=i' => \$numcircles,
+            'outfile=s' => \$outfile);
+if ($outfile !~ m/\.ps$/) { $outfile .= '.ps'; }
+
+my $ticklength = 0.5;
+my $label_increment = 0.2;
+my $positive_hue = 0;
+my $negative_hue = 0.5;
+my $hue = -1;
+my $pi = 3.14159265359;
+my $radius = $size/2 - $ticklength - 2 * $ticklength * $numcircles;
+my $x_off = $radius + $ticklength + 2 * $ticklength * $numcircles;;
+my $y_off = $radius + $ticklength + 2 * $ticklength * $numcircles;;
+my $text_x = $x_off;
+my $text_y = $y_off;
+my $text_off = $radius/10;
+my %circle_drawn = ();
+
 my $genome_length;
 my @ptt;
 my $line;
 my $center;
 my @f;
 my %ptt;
-my $size;
-my $outfile;
+my ($x1, $y1, $x2, $y2);
+my $text_label;
+my $text_hue;
+my $coordinate;
+my $negative;
+my $length;
+my $circle;
+my $cmd;
 
 $genome_length = length($sequence);
 open PTT, $pttfile;
@@ -39,35 +78,11 @@ foreach $line (@ptt) {
     $ptt{$f[$genefield]} = $f[1].$center;
   }
 }
-use Getopt::Long;
-&Getopt::Long::Configure("pass_through");
-$size = 10;
-$outfile = '';
-GetOptions ('size=i' => \$size,
-            'outfile=s' => \$outfile);
-if ($outfile !~ m/\.ps$/) { $outfile .= '.ps'; }
-
-my $ticklength = 0.5;
-my $label_increment = 0.2;
-my $positive_hue = 0;
-my $negative_hue = 0.5;
-my $hue = -1;
-my $pi = 3.14159265359;
-my $radius = $size/2;
-my $x_off = $radius + $ticklength;
-my $y_off = $radius + $ticklength;
-my $text_x = $x_off;
-my $text_y = $y_off;
-my $text_off = $radius/10;
-my ($x1, $y1, $x2, $y2);
-my $text_label;
-my $text_hue;
-my $coordinate;
-my $negative;
 
 open GRI, "| gri -nowarn_offpage -batch -output $outfile";
 if ($topology == 0) {
   print GRI "draw circle with radius $radius at $x_off $y_off\n";
+  $circle_drawn{0} = 1;
   print GRI "draw label \"$orgname genome, $genome_length bp\" centered at $x_off $y_off cm\n";
   ($x1, $y1) = cartesian($radius + 1, 0);
   ($x2, $y2) = cartesian($radius - 1, 0);
@@ -76,13 +91,23 @@ if ($topology == 0) {
   print GRI "draw label \"1\" at $x1 $y1 cm\n";
   $x1 -= 2*$label_increment;
   print GRI "draw label \"$genome_length\" rightjustified at $x1 $y1 cm\n";
+  print GRI "set line width $linewidth\n";
   while (<>) {
     next if /^#/;
     chomp;
-    if ($_ =~ m/^label/i) {
-      @f = split /\s+/, $_;
-      $text_label = join " ", @f[1..($#f-1)];
-      $text_hue = $f[$#f];
+    s/^\s+//;
+    s/\s+$//;
+    @f = split;
+    $cmd = shift @f;
+    if ($cmd eq "label") {	# label <something> <hue>
+      $text_hue = pop @f;
+      if ($text_hue =~ /^-?(?:\d+(?:\.\d*)?|\.\d+)$/) { # decimal (perl book)
+        while ($text_hue > 1) { $text_hue -= 1; }
+      } else {
+        push @f, $text_hue;
+        $text_hue = -1;
+      }
+      $text_label = join " ", @f;
       $text_y -= $text_off;
       if ($text_hue < 0) {
        print GRI "set color hsb 0 0 0\n";
@@ -91,41 +116,36 @@ if ($topology == 0) {
       }
       print GRI "draw label \"$text_label\" centered at $text_x $text_y cm\n";
       next;
-    }
-    if ($_ =~ m/^\s*(\d+)\.\.(\d+)\s*(.*?)$/) {
+    } elsif ($cmd =~ m/^(\d+)\.\.(\d+)$/) {	# 100..200 <hue|length|circle>
       $coordinate = ($1 + $2)/2;
       if ($1 > $2) { $negative = 1; } else { $negative = 0; }
-      if (defined $3 && $3 ne '' && $3 >= 0) {
-        $hue = $3;
-        while ($hue > 1) { --$hue; }
-      }
-    } elsif ($_ =~ m/^\s*([-+]?\d+)\s*(.*?)$/) {
+      ($hue, $length, $circle) = hlc($f[0]);
+    } elsif ($cmd =~ m/^([-+]?\d+)$/) {		# -500 <hue|length|circle>
       if ($1 < 0) { $negative = 1; } else { $negative = 0; }
       $coordinate = abs($1);
-      if (defined $2 && $2 ne '' && $2 >= 0) {
-        $hue = $2;
-        while ($hue > 1) { --$hue; }
-      }
-    } else {
-      @f = split /\s+/, $_;
-      $f[0] =~ s/^[-+]//;
-      if (defined $ptt{$f[0]}) {
-        $coordinate = abs ($ptt{$f[0]});
-        if ($ptt{$f[0]} < 0) { $negative = 1; } else { $negative = 0; }
-        if (defined $f[1] && $f[1] ne '' && $f[1] >= 0) {
-          $hue = $f[1];
-          while ($hue > 1) { --$hue; }
-        }
+      ($hue, $length, $circle) = hlc($f[0]);
+    } else {		# assume this is like CC0400 <hue|length|circle>
+      $cmd =~ s/^[-+]//;
+      if (defined $ptt{$cmd}) {
+        $coordinate = abs ($ptt{$cmd});
+        if ($ptt{$cmd} < 0) { $negative = 1; } else { $negative = 0; }
+        if (defined $f[0]) { ($hue, $length, $circle) = hlc($f[0]); }
       } else {
         next;
       }
     }
-    ($x1, $y1) = cartesian($radius, $coordinate/$genome_length);
+
+    if (!$circle_drawn{$circle}) {
+      print GRI "set color hsb 0 0 0\n";
+      print GRI "draw circle with radius ", $radius + 2 * $ticklength * $circle, " at $x_off $y_off\n";
+      $circle_drawn{$circle} = 1;
+    }
+    ($x1, $y1) = cartesian($radius + $circle*2*$ticklength, $coordinate/$genome_length);
     if (!$negative) {
-      ($x2, $y2) = cartesian($radius+$ticklength, $coordinate/$genome_length);
+      ($x2, $y2) = cartesian($radius + $circle*2*$ticklength + $ticklength*$length, $coordinate/$genome_length);
       if ($hue == -1) { $hue = $positive_hue; }
     } else {
-      ($x2, $y2) = cartesian($radius-$ticklength, $coordinate/$genome_length);
+      ($x2, $y2) = cartesian($radius + $circle*2*$ticklength - $ticklength*$length, $coordinate/$genome_length);
       if ($hue == -1) { $hue = $negative_hue; }
     }
     print GRI "set color hsb $hue 1 1\n";
@@ -133,6 +153,7 @@ if ($topology == 0) {
     $hue = -1;
   }
 }
+close GRI;
 
 sub cartesian {		# a little different because start 0 rad at (0,1)
 			# go clockwise as radians increase
@@ -142,4 +163,27 @@ sub cartesian {		# a little different because start 0 rad at (0,1)
   my $x = $r * sin(2*$pi*$theta) + $x_off;
   my $y = $r * cos(2*$pi*$theta) + $y_off;
   return ($x, $y);
+}
+
+sub hlc {
+  my ($s) = @_;
+  $s = "" if !defined $s;
+  my @s = split /\|/, $s;
+  if (defined $s[0] && $s[0] =~ /^-?(?:\d+(?:\.\d*)?|\.\d+)$/) {
+    $s[0] *= $huescale;
+    while ($s[0] > 1) { $s[0] -= 1; }
+  } else {
+    $s[0] = -1;
+  }
+  if (defined $s[1] && $s[1] =~ /^-?(?:\d+(?:\.\d*)?|\.\d+)$/) {
+    $s[1] *= $tickscale;
+  } else {
+    $s[1] = 1;
+  }
+  if (defined $s[2] && $s[2] =~ /^-?(?:\d+(?:\.\d*)?|\.\d+)$/) {
+    $s[2] *= $circlescale;
+  } else {
+    $s[2] = 0;
+  }
+  return ($s[0], $s[1], $s[2]);
 }
